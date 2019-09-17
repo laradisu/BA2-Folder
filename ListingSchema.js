@@ -16,11 +16,7 @@ var listingSchema = new Schema({
   created_at: Date,
   updated_at: Date,
   address: String,
-  /*meta: {
-    votes: Number,
-    favs: Number
-  }*/
-  
+
 
 });
 
@@ -40,7 +36,7 @@ listingSchema.pre('save', function(next) {
   if (!this.created_at){
     this.created_at = currentDate;
   }
-  
+
   next();    
 
 });
