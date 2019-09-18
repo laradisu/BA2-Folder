@@ -1,6 +1,7 @@
 /* Add all the required libraries*/
 
 /* Connect to your database using mongoose - remember to keep your key secret*/
+mongoose.connect(config.db.uri, {useUnifiedTopology: true, useNewUrlParser: true});
 
 /* Fill out these functions using Mongoose queries*/
 //Check out - https://mongoosejs.com/docs/queries.html
@@ -10,14 +11,24 @@ var findLibraryWest = function() {
     Find the document that contains data corresponding to Library West,
     then log it to the console. 
    */
-  
+  Listings.findOne({name: 'Libary West'}, function(err,data){
+    if (err) 
+      throw err;
+      console.log(data);
+  });
 };
+
 var removeCable = function() {
   /*
     Find the document with the code 'CABL'. This coresponds with courses that can only be viewed 
     on cable TV. Since we live in the 21st century and most courses are now web based, go ahead
     and remove this listing from your database and log the document to the console. 
    */
+  Listings.findOneAndDelete({code: 'CABL'}, function(err,data){
+    if (err) 
+      throw err;
+      console.log(data);
+  });
 };
 var updatePhelpsMemorial = function() {
   /*
