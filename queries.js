@@ -13,7 +13,7 @@ var findLibraryWest = function() {
     Find the document that contains data corresponding to Library West,
     then log it to the console. 
    */
-  Listings.findOne({name: 'Libary West'}, function(err,data){
+  Listings.findOne({name: 'Library West'}, function(err,data){
     if (err) 
       throw err;
       console.log(data);
@@ -57,16 +57,12 @@ var retrieveAllListings = function() {
     Retrieve all listings in the database, and log them to the console. 
    */
 
-   if (err) {
-      throw err;
-      console.log(data);
-  }
-  Listings.find({}, function(err,data){
+   Listings.find({}, function(err,data){
     if (err) 
       throw err;
       console.log(data);
   });
-  console.log(err);     
+  console.log(data);     
 };
 
 findLibraryWest();
