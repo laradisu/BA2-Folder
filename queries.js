@@ -6,6 +6,8 @@ var fs = require('fs'),
     Schema = mongoose.Schema,
     Listings = require('./ListingSchema.js'),
      config =  require('./config.js');
+
+  mongoose.connect(config.db.uri, {useUnifiedTopology: true, useNewUrlParser: true});
     
 /* Fill out these functions using Mongoose queries*/
 //Check out - https://mongoosejs.com/docs/queries.html
@@ -59,13 +61,11 @@ var retrieveAllListings = function() {
   /* 
     Retrieve all listings in the database, and log them to the console. 
    */
-
-   Listings.find({}, function(err,data){
-    if (err) 
-      throw err;
-      console.log(data);
+  Listings.find({}, function(err,listings){
+    if (err) throw err;
+    console.log(listings);
   });
-  console.log(data);     
+
 };
 
 findLibraryWest();
