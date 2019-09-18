@@ -20,17 +20,6 @@ mongoose.connect(config.fb.uri);
   and then save it to your Mongo database 
   //see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
 
-  var array1 = ['a', 'b', 'c'];
-
-  array1.forEach(function(element) {
-    console.log(element);
-  });
-
-  // expected output: "a"
-  // expected output: "b"
-  // expected output: "c"
-
-
   Remember that we needed to read in a file like we did in Bootcamp Assignment #1.
  */
 
@@ -41,7 +30,16 @@ fs.readFile('listings.json', 'utf8', function(err, data) {
       console.log(data);
     }
     try {
-        listings = JSON.parse(data)
+        var listings = JSON.parse(data);
+        listings.entries.forEach(function(listing) {
+          var listingModel = new Listing(listing);
+          listingModel.save(function(err){
+            if (err) {
+              throw err;
+            }console.log(listing);
+          });
+        });
+        
       }
     catch(err) {
         console.error(err)
