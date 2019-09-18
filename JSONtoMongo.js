@@ -11,16 +11,42 @@ var fs = require('fs'),
 
 /* Connect to your database using mongoose - remember to keep your key secret*/
 //see https://mongoosejs.com/docs/connections.html
+mongoose.connect(config.fb.uri);
 //See https://docs.atlas.mongodb.com/driver-connection/
+
 
 /* 
   Instantiate a mongoose model for each listing object in the JSON file, 
   and then save it to your Mongo database 
   //see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
 
+  var array1 = ['a', 'b', 'c'];
+
+  array1.forEach(function(element) {
+    console.log(element);
+  });
+
+  // expected output: "a"
+  // expected output: "b"
+  // expected output: "c"
+
+
   Remember that we needed to read in a file like we did in Bootcamp Assignment #1.
  */
 
+fs.readFile('listings.json', 'utf8', function(err, data) {
+    //Check for errors
+    if (err) {
+      throw err;
+      console.log(data);
+    }
+    try {
+        listings = JSON.parse(data)
+      }
+    catch(err) {
+        console.error(err)
+      }
+    });
 
 /*  
   Check to see if it works: Once you've written + run the script, check out your MongoLab database to ensure that 
