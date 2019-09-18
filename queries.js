@@ -52,6 +52,7 @@ var updatePhelpsLab = function() {
 });
 
 };
+
 var retrieveAllListings = function() {
   /* 
     Retrieve all listings in the database, and log them to the console. 
