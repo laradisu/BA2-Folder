@@ -13,7 +13,7 @@ var findLibraryWest = function() {
 };
 var removeCable = function() {
   /*
-    Find the document with the code 'CABL'. This cooresponds with courses that can only be viewed 
+    Find the document with the code 'CABL'. This coresponds with courses that can only be viewed 
     on cable TV. Since we live in the 21st century and most courses are now web based, go ahead
     and remove this listing from your database and log the document to the console. 
    */
