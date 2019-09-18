@@ -1,9 +1,11 @@
 /* Add all the required libraries*/
 
 /* Connect to your database using mongoose - remember to keep your key secret*/
-var mongoose = require('mongoose'),
+var fs = require('fs'),
+    mongoose = require('mongoose'),
+    Schema = mongoose.Schema,
     Listings = require('./ListingSchema.js'),
-     config =  require('./config')
+     config =  require('./config.js');
     
 /* Fill out these functions using Mongoose queries*/
 //Check out - https://mongoosejs.com/docs/queries.html
