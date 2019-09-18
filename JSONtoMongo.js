@@ -14,7 +14,6 @@ var fs = require('fs'),
 mongoose.connect(config.fb.uri);
 //See https://docs.atlas.mongodb.com/driver-connection/
 
-
 /* 
   Instantiate a mongoose model for each listing object in the JSON file, 
   and then save it to your Mongo database 
