@@ -11,7 +11,7 @@ var fs = require('fs'),
 
 /* Connect to your database using mongoose - remember to keep your key secret*/
 //see https://mongoosejs.com/docs/connections.html
-mongoose.connect('mongodb+srv://<username>:<password>@cen3031-rraxq.mongodb.net/test?retryWrites=true&w=majority', {useNewUrlParser: true});
+mongoose.connect(config.db.uri, {useUnifiedTopology: true, useNewUrlParser: true});
 //See https://docs.atlas.mongodb.com/driver-connection/
 
 /* 
