@@ -35,7 +35,8 @@ fs.readFile('listings.json', 'utf8', function(err, data) {
           listingModel.save(function(err){
             if (err) {
               throw err;
-            }console.log(listing);
+            }
+            console.log(listing);
           });
         });
         
